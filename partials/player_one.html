@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="small-10 small-offset-1 large-6 large-offset-3 columns">
+    <h1>Player One</h1>
+  </div>
+</div>
+<form class="info-form">
+  <div class="row">
+    <div class="small-10 small-offset-1 large-6 large-offset-3 columns">
+      <label>Name:
+        <input type="text" name="playerName" placeholder="Name" />
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-10 small-offset-1 large-6 large-offset-3 columns">
+      <input type="submit" class="button">
+    </div>
+  </div>
+</form>
+
+<script>
+  $(".info-form").on("submit", function(e){
+    e.preventDefault();
+
+    var playerFormInfo = $(this).serializeArray();
+    var playerInfo = {}
+
+    for(var i = 0; i < playerFormInfo.length; i += 1){
+      playerInfo[playerFormInfo[i].name] = playerFormInfo[i].value
+    }
+    
+    if (playerInfo.playerName === ""){
+      $(this).find("input[name=playerName]").css("background-color", "red")
+    } else {
+      window.playerOne = new Player({
+        name: playerInfo.playerName
+      });
+      window.location = "#/player_one_setup"
+    }
+  })
+</script>

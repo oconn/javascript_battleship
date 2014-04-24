@@ -5,20 +5,22 @@ var Board = function(height, width){
   this.width  = width  || 10;
 
   this.grid = [];
+  
+  var toLetter = function(num){
+    return String.fromCharCode(num + 64)
+  }
 
   var x, y;
-  for(y = 1; y <= this.height; y += 1){
+  for(y = 0; y < this.height; y += 1){
     this.grid[y] = [];
-    for(x = 1; x <= this.width; x+= 1){
-      this.grid[y][x] = new BoardSpace()
+    for(x = 0; x < this.width; x+= 1){
+      this.grid[y][x] = new BoardSpace(x, y)
     }
   }
 };
 
 var boardPrototype = {
-  getSize : function(){
-    console.log(this.height * this.width)
-  }
+  
 };
 
 Board.prototype = boardPrototype;

@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="small-10 small-offset-1 large-6 large-offset-3 columns">
+    <h1>Welcome {{ playerOne.name }}: Place Your Fleet</h1>
+
+
+  </div>
+</div>
+
+<div class="board row">
+  
+  <div class="board-row" id="row-{{ $index + 1 }}" ng-repeat="row in playerOne.board.grid">
+    <a href="#" class="cell" id="cell-{{$index + 1}}" ng-repeat="cell in row">
+      {{ cell.contents }}
+    </a>
+  </div>
+
+</div>
+
+<script>
+  $(".board").on("click", ".cell", function(e){
+    e.preventDefault();
+    
+    var x = $(this).parent().attr("id").split("-")[1]
+    var y = $(this).attr("id").split("-")[1]
+
+    console.log(x + "-" + y)
+  })
+</script>

@@ -1,0 +1,20 @@
+.board-row{
+  display: table;
+  width: 100%;
+}
+
+.cell {
+  color: black;
+  display: inline-table;
+  width: 10%;
+  height: 3.5em;
+  line-height: 3.5em;
+  text-align: center;
+  background-color: blue;
+  border: 2px solid black;
+  box-sizing: border-box;
+}
+
+.cell:hover {
+  background-color: gray;
+}
